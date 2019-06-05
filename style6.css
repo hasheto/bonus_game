@@ -52,7 +52,7 @@ img {
 }
 
 .left img {
-	width: 220px;
+	width: 200px;
 	height: 160px;
 	display: block;
 	margin: 10px;
@@ -72,7 +72,7 @@ img {
 #crcl1 {
 	position: absolute;
  	left: 48%;
-  	top: 22%;
+  	top: 18%;
 }
 
 #crcl2 {
@@ -126,7 +126,7 @@ img {
 #crcl7 {
 	position: absolute;
  	left: 48%;
-  	top: 68%;
+  	top: 71%;
 }
 
 #crcl6 {
@@ -135,13 +135,70 @@ img {
   	top: 68%;
 }
 
-.stop img {
-	width: 90px;
-	height: 90px;
+#crcl9 {
 	position: absolute;
-	left: 47%;
-	top: 40%;
-	visibility: hidden;
+ 	left: 40%;
+  	top: 32%;
+}
+
+#crcl10 {
+	position: absolute;
+ 	left: 48%;
+  	top: 32%;
+}
+
+#crcl11 {
+	position: absolute;
+ 	left: 56%;
+  	top: 32%;
+}
+
+#crcl12 {
+	position: absolute;
+ 	left: 40%;
+  	top: 44%;
+}
+
+#crcl17 {
+	position: absolute;
+ 	left: 48%;
+  	top: 44%;
+}
+
+#crcl18 {
+	position: absolute;
+ 	left: 56%;
+  	top: 44%;
+}
+
+#crcl19 {
+	position: absolute;
+ 	left: 40%;
+  	top: 56%;
+}
+
+#crcl20 {
+	position: absolute;
+ 	left: 48%;
+  	top: 56%;
+}
+
+#crcl21 {
+	position: absolute;
+ 	left: 56%;
+  	top: 56%;
+}
+
+#crcl22 {
+	position: absolute;
+ 	left: 27%;
+  	top: 44%;
+}
+
+#crcl23 {
+	position: absolute;
+ 	left: 69%;
+  	top: 44%;
 }
 
 .dot {
@@ -213,9 +270,10 @@ img {
 }
 
 .right img {
-	width: 220px;
+	width: 200px;
 	height: 160px;
 	display: block;
 	margin: 10px;
 	border: 3px #999 solid;
+	align-content: center;
 }

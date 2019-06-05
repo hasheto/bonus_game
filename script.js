@@ -1,19 +1,64 @@
 var speed = document.querySelector('.speed');
 var brake = document.querySelector('.brake');
-var x = document.getElementById("myAudio"); 
+var audioLose = document.getElementById("audioLose");
+var audioWin = document.getElementById("audioWin"); 
+var audio = document.getElementById("audio"); 
+var audioSpeed = document.getElementById("audioSpeed");   
 
 var  flagBtnStop = false;
+// Get the modal
+var modal = document.getElementById("myModal");
+var span = document.getElementsByClassName("close")[0];
+var anounce = document.getElementsByClassName("anounce")[0];
+var image = document.getElementsByClassName("imageModal")[0];
 
-function playAudio() {
-  x.loop = false;
-  x.load();
-  x.play(); 
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+function playAudioSpeed() {
+  audioSpeed.loop = false;
+  audioSpeed.muted = false;
+  audioSpeed.load();
+  audioSpeed.play(); 
 } 
 
-function showWin(message) {
-	playAudio();
-	alert(message);
-}
+function playAudio() {
+  audio.loop = false;
+  console.log(audioSpeed.muted);
+  audioSpeed.muted = true;
+  audio.load();
+  audio.play(); 
+} 
+
+function playAudioLose() {
+  audioLose.loop = false;
+  console.log(audioSpeed.muted);
+  audioSpeed.muted = true;
+  audioLose.load();
+  audioLose.play(); 
+} 
+
+function playAudioWin() {
+  audioWin.loop = false;
+  console.log(audioSpeed.muted);
+  audioSpeed.muted = true;
+  audioWin.load();
+  audioWin.play(); 
+} 
+
+
+function showWin(message,number) {
+	anounce.innerHTML = message;
+
+  if (number==7) {
+    image.src = "./img/midlefinger4.png"
+   }
+  else {
+    image.src = "./img/yes.jpg"
+   }  
+  modal.style.display = "block";
+ }
 
 function restoreColor(dots) {
 	var i;	
@@ -31,22 +76,47 @@ function convertBtn ()  {
 
 function winMessage(dot,pos) {
 	
-	var message = ["Win!!! Химикалка","Win!!! Запалка","Win!!! Писалка","Win!!! Обувалка","Win!!! Тото",
-					"Win!!! Чек","Win!!! Нов късмет","Win!!! Бутилка",
-					"Win!!! Нова кухнеска престилка","Win!!! Буркан мед","Win!!! Сладолед","Win!!! Билет"];
-	var number	= dot.innerHTML;
-				
-	var str = 'И твоето число е:' + number + '    '+ message[pos] ;
-	console.log(str,pos);
+	var message = ["Печелиш ролка за касов апарат!","Печелиш ароматизатор!","Печелиш 20 бр. фирмени визитки!",
+                "Печелиш 50 бр. фирмени визитки!","Печелиш 100 бр. фирмени визитки!","Печелиш стойка за визитки!",
+                "Печелиш пепелник за кола!","Печелиш ролка за касов апарат!","Печелиш 5 лв. зареждане в сметката!",
+                "Печелиш 2 лв. зареждане в сметката!","Печелиш заверка на пътна книжка!","Печелиш табела НЕ РАБОТИ!",
+                "Печелиш пътна книжка!"];
+	var len = message.length-1;
+  var number	= dot.innerHTML;
+  var strInfo;
+
+  if (pos>len) {
+    pos= pos%len;
+  }
+
+	if (number==7) {
+      playAudioLose(); 
+      strInfo = "Опитай пак, не се отчайвай!"
+  }
+  else {
+   if (number==23) {
+      playAudioWin();	
+      strInfo = "Печелиш половин месечна такса!"
+  } 
+  else {
+     playAudio();
+     strInfo = message[pos];
+     }
+  } 
+
+	
 	dot.style.transform = "scale(1.5,1.5)";
 	
-	// setTimeout(showWin(str), 500);
-	setTimeout(function() { alert(str); },500);
+	setTimeout(showWin(strInfo,number), 500);
+	//setTimeout(function() { alert(str); },500);
 }
 
 function onClick() {
+
 	var colors = ["#ff0000","#ffff00","#0033cc","#66ff33","#660033","#66ffff","#ff6666",
-					"#6363ff","#995c00","#c066ff","#000000","#ff8566"];
+                "#6363ff","#995c00","#c066ff","#ffff00","#ff8566","#ff0000","#ffff00",
+                "#0033cc","#66ff33","#660033","#66ffff","#ff6666",
+                "#6363ff","#995c00","#c066ff","#ffff00"];
 	
   var dots = document.getElementsByClassName("dot");  
   var pos = 0;
@@ -54,33 +124,30 @@ function onClick() {
   
   convertBtn();
   restoreColor(dots);
-
+  playAudioSpeed();
   var id = setInterval(move, 100);
+
   function move() {
 
-    if (pos + 1 == len) {
-    	pos=0;
-    	restoreColor(dots);
+    if (pos == len) {
+      pos=0;
+      restoreColor(dots);
     } 
-    
+
+    dots[pos].style.backgroundColor = colors[pos];
+
     if (flagBtnStop == true)	{
     	 clearInterval(id);  
       	 flagBtnStop = false;
-      	 if (pos!=0) {
-      	 	pos--;
-      	 }	
-      	 winMessage(dots[pos],pos);
+         winMessage(dots[pos],pos);
         }
-    else {
-     dots[pos].style.backgroundColor = colors[pos];
-     pos++; 
-    }
+
+     pos++;
   }
-  
 }
 
 function onBrake(e){
-	playAudio();
+	
 	flagBtnStop = true;
 	convertBtn() ;
  }
@@ -91,9 +158,13 @@ brake.addEventListener("click", onBrake)
 
 document.body.onkeyup = function(e){
     if(e.keyCode == 32){
+      if ( modal.style.display == "block") {
+         modal.style.display = "none"
+      }
+      else {
     	var gaz = speed.disabled;
     	var stop = brake.disabled;
-    		console.log(gaz);
+    		
     	if (!gaz) {
     		console.log("gaz onClick");
     		onClick();
@@ -102,6 +173,6 @@ document.body.onkeyup = function(e){
     		console.log("stop onBbrake");
     		onBrake();
     	}
-    	     
+     }    
     }
 }

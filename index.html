@@ -5,8 +5,20 @@
 	<meta name="viewport" content="width=device-width">
 	<title>Game of the chance</title>
 	<link rel="stylesheet" type="text/css" href="style6.css">
+	<link rel="stylesheet" type="text/css" href="stylemod.css">
 </head>
 <body>
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+
+  	 <!-- Modal content -->
+  	 <div class="modal-content">
+    	<span class="close">&times;</span>
+    	<p><img class="imageModal" src="./img/midlefinger4.png">
+      	  <br><span class="anounce"></span>
+    	</p>
+ 	 </div>
+	</div>
 	<header>
 		<div class="container">
 		    <div id="logo">
@@ -18,7 +30,7 @@
 		<div class="left">
 			<img src="./img/rulette.jpg">
 			<img src="./img/car.jpg">
-			<img src="./img/girl2.jpg">
+			<img src="./img/stop.png">
 		</div>
 		<div class="middle">
 			<div id="crcl16">
@@ -39,9 +51,6 @@
 			<div id="crcl14">
 				<span class="dot">14</span>
 			</div>
-			<div class="stop">
-				<img src="./img/stop.png">
-			</div>
 			<div id="crcll5">
 				<span class="dot">15</span>
 			</div>
@@ -60,67 +69,63 @@
 			<div id="crcl6">
 				<span class="dot">6</span>
 			</div>
+			<div id="crcl9">
+				<span class="dot">9</span>
+			</div>
+			<div id="crcl10">
+				<span class="dot">10</span>
+			</div>
+			<div id="crcl11">
+				<span class="dot">11</span>
+			</div>
+			<div id="crcl12">
+				<span class="dot">12</span>
+			</div>
+			<div id="crcl17">
+				<span class="dot">17</span>
+			</div>
+			<div id="crcl18">
+				<span class="dot">18</span>
+			</div>
+			<div id="crcl19">
+				<span class="dot">19</span>
+			</div>
+			<div id="crcl20">
+				<span class="dot">20</span>
+			</div>
+			<div id="crcl21">
+				<span class="dot">21</span>
+			</div>
+			<div id="crcl22">
+				<span class="dot">22</span>
+			</div>
+			<div id="crcl23">
+				<span class="dot">23</span>
+			</div>
 			<div class="btns">
 				<button class="button brake" disabled>Спирачка</button>
 				<button class="button speed">Газ</button>
 			</div>
 		</div>
 		<div class="right">
-			<img src="./img/girl3.jpg">
-			<img src="./img/taxiCab.png">
+			<img src="./img/car22.jpg">
 			<img src="./img/girl4.jpg">
+			<img src="./img/girl2.jpg">
 		</div>
 		
 	</div>
-	<audio id="myAudio">
-    	<source src="applause.wav" type="audio/wav">
+	<audio id="audio">
+    	<source src="brakeappl.wav" type="audio/wav">
 	</audio>
-	<!-- <section>
-		<div id="crcl16">
-			<span class="dot">16</span>
-		</div>
-		<div id="crcl1">
-			<span class="dot">1</span>
-		</div>
-		<div id="crcl2">
-			<span class="dot">2</span>
-		</div>
-		<div id="crcl3">
-			<span class="dot">3</span>
-		</div>
-		<div id="crcl4">
-			<span class="dot">4</span>
-		</div>
-		<div id="crcl14">
-			<span class="dot">14</span>
-		</div>
-		<div class="stop">
-			<img src="./img/stop.png">
-		</div>
-		<div id="crcll5">
-			<span class="dot">15</span>
-		</div>
-		<div id="crcl5">
-			<span class="dot">5</span>
-		</div>
-		<div id="crcll3">
-			<span class="dot">13</span>
-		</div>
-		<div id="crcl8">
-			<span class="dot">8</span>
-		</div>
-		<div id="crcl7">
-			<span class="dot">7</span>
-		</div>
-		<div id="crcl6">
-			<span class="dot">6</span>
-		</div>
-		<div class="btns">
-			<button class="button brake">Спирачка</button>
-			<button class="button speed">Газ</button>
-		</div>
-	  </div>
-	</section> -->
+	<audio id="audioLose">
+    	<source src="lost44.wav" type="audio/wav">
+	</audio>
+	<audio id="audioWin">
+    	<source src="winSound.mp3" type="audio/mp3">
+	</audio>
+	<audio id="audioSpeed">
+    	<source src="gaz66.wav" type="audio/wav">
+	</audio>
 <script src="script.js"></script>
 </body>
 </html>
